@@ -6,7 +6,6 @@ class Registration extends Component {
     console.log("RegistrationComponents");
     return (
       <div className="wrapper">
-        Registration
         <div className="container">
             <div className="regBlock">
                 <div className="header">
@@ -17,12 +16,21 @@ class Registration extends Component {
                         <h3>Registration</h3>
                     </header>
                     <div className="formBlockContent">
-                        <form action="">
-                            <div className="input"><input type="text" placeholder="name"/></div>
-                            <div className="input"><input type="text" placeholder="email"/></div>
-                            <div className="input"><input type="password" placeholder="password"/></div>
-                            <button type="submit">Enter</button>
-                        </form>
+                        <div className="form">
+                            <div className="input col-sm-12 col-xl-6">
+                            <i className="material-icons">face</i>
+                            <input className="col-12" type="text" placeholder="name"/>
+                            </div>
+                            <div className="input col-sm-12 col-xl-6">
+                            <i className="material-icons">https</i>
+                            <input className="col-12" type="text" placeholder="email"/>
+                            </div>
+                            <div className="input col-sm-12 col-xl-6">
+                            <i className="material-icons">markunread_mailbox</i>
+                            <input className="col-12" type="password" placeholder="password"/>
+                            </div>
+                            <button className="btnLogin" type="submit">Enter<i className="material-icons">keyboard_arrow_right</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
