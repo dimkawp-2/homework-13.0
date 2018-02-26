@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Nav from '../Nav';
 import Preloader from '../Preloader';
 import Redirect from 'react-router/Redirect';
-import { Tabs, TabLink, TabContent } from 'react-tabs-redux';
 
 class Login extends Component {
 
