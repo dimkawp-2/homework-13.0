@@ -4,9 +4,17 @@ body {
     background: url(../img/main-bg.fw.png) no-repeat 100% 100%;
     background-size: cover;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 @import './sections/nav.scss';
 @import './sections/login.scss';
 @import './sections/Menu/topMenu.scss';
 @import './sections/Menu/sideMenu.scss';
+@import './sections/Home/home.scss';
+@import './sections/Home/sales.scss';
+@import './sections/Home/activity.scss';
+@import './sections/Home/tasks.scss';
+@import './sections/Home/report.scss';
+@import './sections/Home/messages.scss';
+
 @import 'buttons.scss';

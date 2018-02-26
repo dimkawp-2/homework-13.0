@@ -8,30 +8,33 @@ class SideMenu extends Component {
     return (
         <section id="SideMenu">
             <div className="SideMenuBlock">
+                    <div className="sideMenu">
+                        <i className="material-icons">format_align_justify</i>
+                    </div>
                 <div className="logo"><Link to="/"><img src={logo} alt="logo"/></Link></div>
                 <div className="item">
                     <i className="material-icons">home</i>
-                    <span>Home</span>
+                    <Link to="/">Home</Link>
                 </div>
                 <div className="item">
                     <i className="material-icons">playlist_add</i>
-                    <span>Workflow</span>
+                    <Link to="/workflow">Workflow</Link>
                 </div>
                 <div className="item">
                     <i className="material-icons">show_chart</i>
-                    <span>Statistics</span>
+                    <Link to="/statistics">Statistics</Link>
                 </div>
                 <div className="item">
                     <i className="material-icons">perm_contact_calendar</i>
-                    <span>Calendar</span>
+                    <Link to="/calendar">Calendar</Link>
                 </div>
                 <div className="item">
                     <i className="material-icons">account_box</i>
-                    <span>Users</span>
+                    <Link to="/users">Users</Link>
                 </div>
                 <div className="item">
                     <i className="material-icons">settings</i>
-                    <span>Settings</span>
+                    <Link to="/settings">Settings</Link>
                 </div>
             </div>
         </section>

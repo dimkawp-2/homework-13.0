@@ -7,14 +7,19 @@ class TopMenu extends Component {
             $(".sideMenu").click(function(){
                 $(".SideMenuBlock").toggle("slow");
             });
+            $(".dropdownContent").hide();
+            $(".dropBtn").click(function(){         
+                $(".dropdownContent").toggle("fast");
+            });
     }
     logOut = () => {
         console.log(localStorage.getItem('User'));
         localStorage['User'] = 'false';
-        window.location.reload()
+        window.location.reload();
         console.log(localStorage.getItem('User'));
     }
   render() {
+    const UserImg = localStorage.getItem('UserImg');
     console.log("TopMenuComponents");
     return (
         <section id="topMenu">
@@ -31,8 +36,14 @@ class TopMenu extends Component {
                     <button className="addProject"><i className="material-icons">add</i>Add project</button>
                     <i className="material-icons">mail</i>
                     <i className="material-icons">notifications</i>
-                    <img src="" alt="avatat"/>
-                    <button onClick={this.logOut}>LOGOUT</button>
+                    <div className="dropdownMenu">
+                    <img className="avatar" src={UserImg} alt="avatat"/>
+                        <button className="dropBtn"><i className="material-icons">arrow_drop_down</i></button>
+                        <div className="dropdownContent">
+                            <button>CONTENT</button>
+                            <button onClick={this.logOut}>LOGOUT</button>
+                        </div>
+                    </div>        
                 </div>
             </div>
         </section>

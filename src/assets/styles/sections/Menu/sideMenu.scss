@@ -1,9 +1,13 @@
 /*side menu*/
 #SideMenu {
+    background-color: #0D1935;
     .SideMenuBlock {
         width: 20vw;
         display: flex;
         flex-direction: column;
+        .sideMenu {
+            display: none;
+        }
         .logo {
             height: 100px;
             background-color: #0D1935;
@@ -20,7 +24,10 @@
             background-color: #0D1935;
             font-size: 24px;
             font-weight: 600;
-            color: white;
+            a {
+                color: white;
+            }
+
             i {
                 margin-left: 50px;
                 margin-right: 15px;
@@ -35,4 +42,41 @@
             }
         }
     }
+}
+@media screen and (max-width:1200px) {
+    #SideMenu {
+        z-index: 999;
+        .SideMenuBlock {
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            .sideMenu {
+                margin: 25px;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                i {
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+            .item {
+                width: 100%;
+                justify-content: center;
+                i {
+                    margin-left: 0;
+                }
+            }
+            .item:hover {
+                background-color: #112042;
+                border-left: none;
+                i {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    
 }
