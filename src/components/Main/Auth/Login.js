@@ -5,22 +5,76 @@ import Preloader from '../Preloader';
 import Redirect from 'react-router/Redirect';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            addClass: false,
+            errorClass: false
+        }
+    }
+    toggle() {
+        this.setState({addClass: !this.state.addClass});
+    }
 
     handleLogin = () => {
         const data = {
-            login: this.login.value.trim(),
+            name: this.login.value.trim(),
             password: this.password.value.trim()
-        };
-        if (this.login.value.trim() === 'admin' && this.password.value.trim() === 'admin') {
-            localStorage.setItem('User', 'true');
-            localStorage.setItem('UserImg', 'https://cdn2.iconfinder.com/data/icons/lil-faces/233/lil-face-4-512.png');
-            this.props.history.push("/");
-        } 
-        else {
-            this.props.history.push("/");
         }
+        fetch('/api/users/authentication', {
+            headers: {
+                'Content-type': 'application/json'
+            },
+            method: 'post',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response.login === 'true') {
+                localStorage.setItem('User', response.login);
+                console.log(response.login);
+                this.props.history.push("/");
+            }
+            else {
+                console.log(response.login);
+                this.setState({errorClass: true});
+            }
+
+        })
     }
+    handleRegistration = () => {
+        const data = {
+            name: this.name.value.trim(),
+            email: this.email.value.trim(),
+            password: this.regPassword.value.trim(),
+        }
+        fetch('/api/users/create_user', {
+            headers: {
+                'Content-type': 'application/json'
+            },
+            method: 'post',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            if (response === 'user created') {
+                this.props.history.push("/");
+            }
+            else {
+                console.log(response);
+                this.setState({errorClass: true});
+            }
+        })
+    }
+
   render() {
+
+    let error = [""];
+    if(this.state.errorClass) {
+        error.push("error");
+    }
+
     console.log("LoginComponents");
     return (
       <div className="wrapper">
@@ -37,11 +91,11 @@ class Login extends Component {
                             </header>
                             <div className="formBlockContent container">
                                 <div className="form">
-                                    <div className="input col-sm-12 col-lg-6">
+                                    <div className={"input col-sm-12 col-lg-6" + error.join(' ')}>
                                     <i className="material-icons">face</i>
                                     <input className="col-lg-12" type="text" placeholder="username" ref={el => this.login = el}/>
                                     </div>
-                                    <div className="input col-6 col-sm-12 col-lg-6">
+                                    <div className={"input col-sm-12 col-lg-6" + error.join(' ')}>
                                     <i className="material-icons">https</i>
                                     <input className="col-lg-12" type="password" placeholder="password" ref={el => this.password = el}/>
                                     </div>                            
@@ -57,19 +111,19 @@ class Login extends Component {
                             </header>
                             <div className="formBlockContent">
                                 <div className="form">
-                                    <div className="input col-sm-12 col-lg-6">
+                                    <div className={"input col-sm-12 col-lg-6" + error.join(' ')}>
                                     <i className="material-icons">face</i>
-                                    <input className="col-lg-12" type="text" placeholder="name"/>
+                                    <input className="col-lg-12" type="text" placeholder="name" ref={el => this.name = el}/>
                                     </div>
-                                    <div className="input col-sm-12 col-lg-6">
+                                    <div className={"input col-sm-12 col-lg-6" + error.join(' ')}>
                                     <i className="material-icons">https</i>
-                                    <input className="col-lg-12" type="text" placeholder="email"/>
+                                    <input className="col-lg-12" type="text" placeholder="email" ref={el => this.email = el}/>
                                     </div>
-                                    <div className="input col-sm-12 col-lg-6">
+                                    <div className={"input col-sm-12 col-lg-6" + error.join(' ')}>
                                     <i className="material-icons">markunread_mailbox</i>
-                                    <input className="col-lg-12" type="password" placeholder="password"/>
+                                    <input className="col-lg-12" type="password" placeholder="password" ref={el => this.regPassword = el}/>
                                     </div>
-                                    <button className="btnLogin" type="submit">Enter<i className="material-icons">keyboard_arrow_right</i></button>
+                                    <button disabled onClick={this.handleRegistration} className="btnLogin" type="submit">Enter<i className="material-icons">keyboard_arrow_right</i></button>
                                 </div>
                             </div>
                         </div>
