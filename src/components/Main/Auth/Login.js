@@ -23,6 +23,7 @@ class Login extends Component {
         }
         fetch('https://api-fore-homework-13.herokuapp.com/api/users/authentication', {
             headers: {
+                "Access-Control-Allow-Origin" : "*",
                 'Content-type': 'application/json'
             },
             method: 'post',
