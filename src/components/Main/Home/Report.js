@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import reportImg from '../../../assets/img/home/report.fw.png';
-import Select from './Select';
 import SelectReport from './SelectReport';
 import ReactHighcharts from 'react-highcharts';
 //config
@@ -9,7 +7,10 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ReportfieldVal: []
+      ReportfieldVal: 
+      [
+        ["Websites",222],["Logo", 2],["Social Media",222],["Adwords", 22], ["E-Commerce", 2222]
+      ]
     }
   }
   ReportgetData = (val) => {

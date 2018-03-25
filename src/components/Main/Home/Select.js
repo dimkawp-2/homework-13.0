@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 //config
-import SalesChart from '../../../config/pieChart.config';
-
 class Select extends Component {
     onChange = (e) => {
         console.log(e.target.value);
@@ -37,7 +35,7 @@ class Select extends Component {
             this.props.data.map((item, index) => {
                 return (
                 <option key={index} value={item}>
-                    {item} 
+                {item}
                 </option>
                 ); 
             })

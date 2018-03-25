@@ -52,6 +52,15 @@ nav {
       border-bottom: 10px solid #5583FF;
       margin-bottom: -10px; }
 
+@media screen and (max-width: 600px) {
+  nav {
+    justify-content: center;
+    align-items: center; }
+    nav .logo {
+      margin: 0; }
+    nav ul {
+      padding: 0; } }
+
 /* login block */
 .loginBlock .formBlock, .regBlock .formBlock {
   background-color: #F5F7F9; }
@@ -72,6 +81,13 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    .loginBlock .formBlock .formBlockContent .form .login-error, .regBlock .formBlock .formBlockContent .form .login-error {
+      color: red;
+      font-weight: 600;
+      padding: 10px 20px;
+      background-color: #66001d;
+      border: 1px solid red;
+      text-transform: uppercase; }
     .loginBlock .formBlock .formBlockContent .form .input, .regBlock .formBlock .formBlockContent .form .input {
       margin-top: 50px;
       display: flex;
@@ -99,13 +115,13 @@ nav {
       .loginBlock .formBlock .formBlockContent .form .input ::-webkit-input-placeholder-shown, .regBlock .formBlock .formBlockContent .form .input ::-webkit-input-placeholder-shown {
         height: 50px; }
     .loginBlock .formBlock .formBlockContent .form .error i, .regBlock .formBlock .formBlockContent .form .error i {
-      color: red; }
+      color: #66001d; }
     .loginBlock .formBlock .formBlockContent .form .error input, .regBlock .formBlock .formBlockContent .form .error input {
       border-bottom: 1px solid red; }
     .loginBlock .formBlock .formBlockContent .form .error input[type=text], .loginBlock .formBlock .formBlockContent .form .error input[type=password], .regBlock .formBlock .formBlockContent .form .error input[type=text], .regBlock .formBlock .formBlockContent .form .error input[type=password] {
-      color: red; }
+      color: #66001d; }
     .loginBlock .formBlock .formBlockContent .form .error ::-webkit-input-placeholder, .regBlock .formBlock .formBlockContent .form .error ::-webkit-input-placeholder {
-      color: red; }
+      color: #66001d; }
     .loginBlock .formBlock .formBlockContent .form button, .regBlock .formBlock .formBlockContent .form button {
       position: relative;
       width: 370px;
@@ -123,8 +139,22 @@ nav {
         position: absolute;
         margin-top: 6px;
         right: 20px; }
+    .loginBlock .formBlock .formBlockContent .form .preloader, .regBlock .formBlock .formBlockContent .form .preloader {
+      background: url(../img/login/loader.gif) no-repeat, #5583FF;
+      color: #5583FF;
+      background-size: 70px 70px;
+      background-position: center; }
+
+@media screen and (max-width: 600px) {
+  button {
+    width: 300px; } }
 
 /*topMenu*/
+.ui.active.modal {
+  height: 200px; }
+  .ui.active.modal .positive {
+    background-color: #5583FF; }
+
 #topMenu {
   width: 100%; }
   #topMenu .topMenuBlock {
@@ -176,6 +206,7 @@ nav {
           border: none;
           background-color: transparent; }
         #topMenu .topMenuBlock .userProfile .dropdownMenu .dropdownContent {
+          z-index: 99;
           position: absolute;
           display: flex;
           align-items: center;
@@ -193,13 +224,26 @@ nav {
             outline: none;
             border: none;
             background-color: transparent; }
+          #topMenu .topMenuBlock .userProfile .dropdownMenu .dropdownContent button:hover {
+            transition: 1s;
+            box-shadow: 1px 1px 30px 0px rgba(50, 50, 50, 0.75); }
     #topMenu .topMenuBlock .userProfile > * {
       margin: 35px 25px; }
 
 @media screen and (max-width: 1200px) {
+  #topMenu .topMenuBlock .navigation .sideMenu {
+    margin: 25px 0 25px 25px; }
+  #topMenu .topMenuBlock .navigation .search {
+    margin: 25px 0 25px 5px; }
+  #topMenu .topMenuBlock .navigation .dropdownMenu {
+    display: flex;
+    align-self: flex-end; }
   #topMenu .topMenuBlock .userProfile {
     width: 100%;
     justify-content: flex-end; }
+    #topMenu .topMenuBlock .userProfile .addProject {
+      width: 140px;
+      font-size: 12px; }
   #topMenu .topMenuBlock .userProfile > * {
     margin: 0 2%; } }
 
@@ -244,7 +288,7 @@ nav {
     #SideMenu .SideMenuBlock {
       justify-content: center;
       align-items: center;
-      width: 100vw;
+      width: 100%;
       height: 100vh; }
       #SideMenu .SideMenuBlock .sideMenu {
         margin: 25px;
@@ -280,7 +324,8 @@ nav {
   justify-content: center; }
 
 .home {
-  display: flex; }
+  display: flex;
+  min-height: 100vh; }
   .home .title h2 {
     color: #0D1935;
     font-size: 48px; }
@@ -293,7 +338,9 @@ nav {
       flex-direction: column;
       background-color: #F6F7FA; }
       .home #mainContent .content .title {
-        margin: 45px; }
+        margin: 45px 0; }
+        .home #mainContent .content .title h2 {
+          margin-left: 50px; }
       .home #mainContent .content .homeComponents {
         display: flex;
         flex-direction: row;
@@ -320,6 +367,8 @@ nav {
 @media screen and (max-width: 1200px) {
   .home {
     flex-direction: column; }
+    .home #mainContent .content .title h2 {
+      margin: 0; }
     .home .sales, .home .report, .home .messages, .home .activity, .home .tasks {
       width: 100%;
       margin: 0;
@@ -331,16 +380,39 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between; }
+  .home #mainContent .content .workFlowComponents .toDo .header, .home #mainContent .content .workFlowComponents .InProgress .header, .home #mainContent .content .workFlowComponents .Completed .header {
+    margin: 15px; }
+    .home #mainContent .content .workFlowComponents .toDo .header span, .home #mainContent .content .workFlowComponents .InProgress .header span, .home #mainContent .content .workFlowComponents .Completed .header span {
+      color: #8391AF; }
+  .home #mainContent .content .workFlowComponents .toDo .addItem, .home #mainContent .content .workFlowComponents .InProgress .addItem, .home #mainContent .content .workFlowComponents .Completed .addItem {
+    z-index: 1;
+    height: 110px;
+    width: 110px;
+    background: url(../img/workflow/add-icon.png);
+    background-size: 100% 100%;
+    position: absolute;
+    left: 40%;
+    border: 1px solid #D4D8E3;
+    margin: 10px 0; }
+  .home #mainContent .content .workFlowComponents .toDo .addItem:hover, .home #mainContent .content .workFlowComponents .InProgress .addItem:hover, .home #mainContent .content .workFlowComponents .Completed .addItem:hover {
+    transition-duration: 1s;
+    border: 1px solid #FFFFFF;
+    cursor: pointer; }
   .home #mainContent .content .workFlowComponents .toDo .items, .home #mainContent .content .workFlowComponents .InProgress .items, .home #mainContent .content .workFlowComponents .Completed .items {
+    z-index: -1;
     display: flex;
     flex-direction: column;
-    margin: 15px; }
+    margin: 15px;
+    min-height: 100px; }
     .home #mainContent .content .workFlowComponents .toDo .items .item, .home #mainContent .content .workFlowComponents .InProgress .items .item, .home #mainContent .content .workFlowComponents .Completed .items .item {
+      z-index: 2;
       display: flex;
       flex-direction: row;
+      align-items: center;
       margin: 10px 0;
       background-color: #FFFFFF;
-      border: 1px solid #D4D8E3; }
+      border: 1px solid #D4D8E3;
+      cursor: pointer; }
       .home #mainContent .content .workFlowComponents .toDo .items .item .preview, .home #mainContent .content .workFlowComponents .InProgress .items .item .preview, .home #mainContent .content .workFlowComponents .Completed .items .item .preview {
         margin: 25px;
         height: 45px;
@@ -364,9 +436,457 @@ nav {
           color: #8391AF; }
         .home #mainContent .content .workFlowComponents .toDo .items .item .description .delete, .home #mainContent .content .workFlowComponents .InProgress .items .item .description .delete, .home #mainContent .content .workFlowComponents .Completed .items .item .description .delete {
           color: #F73B7B; }
-      .home #mainContent .content .workFlowComponents .toDo .items .item .itemControl, .home #mainContent .content .workFlowComponents .InProgress .items .item .itemControl, .home #mainContent .content .workFlowComponents .Completed .items .item .itemControl {
-        margin: 25px;
-        width: 10%; }
+      .home #mainContent .content .workFlowComponents .toDo .items .item .testDropDown, .home #mainContent .content .workFlowComponents .InProgress .items .item .testDropDown, .home #mainContent .content .workFlowComponents .Completed .items .item .testDropDown {
+        height: 33px;
+        width: 7px;
+        background: url(../img/workflow/item-icon.fw.png) no-repeat center;
+        background-size: cover; }
+        .home #mainContent .content .workFlowComponents .toDo .items .item .testDropDown i, .home #mainContent .content .workFlowComponents .toDo .items .item .testDropDown .text, .home #mainContent .content .workFlowComponents .InProgress .items .item .testDropDown i, .home #mainContent .content .workFlowComponents .InProgress .items .item .testDropDown .text, .home #mainContent .content .workFlowComponents .Completed .items .item .testDropDown i, .home #mainContent .content .workFlowComponents .Completed .items .item .testDropDown .text {
+          display: none; }
+        .home #mainContent .content .workFlowComponents .toDo .items .item .testDropDown .menu .item .text, .home #mainContent .content .workFlowComponents .InProgress .items .item .testDropDown .menu .item .text, .home #mainContent .content .workFlowComponents .Completed .items .item .testDropDown .menu .item .text {
+          display: flex;
+          text-align: center; }
+
+@media screen and (max-width: 1200px) {
+  .home #mainContent .content .workFlowComponents .toDo .addItem, .home #mainContent .content .workFlowComponents .InProgress .addItem, .home #mainContent .content .workFlowComponents .Completed .addItem {
+    left: 0;
+    margin-left: 30px; } }
+
+/* calendar */
+#testModal {
+  padding: 25px;
+  width: 300px;
+  background-color: white;
+  position: fixed;
+  left: 45%;
+  right: 50%;
+  top: 20%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #8391AF; }
+  #testModal .close {
+    width: 10px;
+    height: 10px;
+    margin-left: 90%; }
+  #testModal .header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #8391AF;
+    padding-bottom: 25px; }
+    #testModal .header span {
+      margin: 10px 0; }
+    #testModal .header .author {
+      display: flex;
+      flex-direction: row; }
+      #testModal .header .author .avatarImg {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #231F3D; }
+      #testModal .header .author div {
+        display: flex;
+        flex-direction: column; }
+        #testModal .header .author div span {
+          margin: 0;
+          margin-left: 10px; }
+        #testModal .header .author div .name {
+          color: #0D1935;
+          font-size: 20px;
+          font-weight: 600; }
+  #testModal .contentBlock {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+    border-bottom: 1px solid #8391AF;
+    background-color: white; }
+    #testModal .contentBlock .block {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      margin-bottom: 5px; }
+      #testModal .contentBlock .block p {
+        color: #0D1935;
+        font-weight: 600; }
+  #testModal .buttonBlock {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0; }
+    #testModal .buttonBlock button {
+      background-color: #5583FF;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      border: none;
+      outline: none;
+      padding: 15px 35px;
+      border-radius: 30px; }
+
+.home #mainContent .content .calendarComponents {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .home #mainContent .content .calendarComponents .bigCalendar {
+    margin: 15px; }
+    .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar {
+      background-color: #FFFFFF; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-toolbar {
+        background-color: #F5F7F9;
+        margin: 0;
+        color: #0D1935;
+        font-size: 14px; }
+        .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-toolbar .rbc-btn-group button {
+          border: none;
+          outline: none;
+          text-transform: uppercase; }
+        .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-toolbar .rbc-btn-group .rbc-active {
+          border-radius: 1px;
+          border-bottom: 2px solid #5583FF;
+          background-color: #F5F7F9; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-row .rbc-row-bg .rbc-off-range-bg, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-time-view .rbc-row-bg .rbc-off-range-bg {
+        background-color: #FFFFFF; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-row .rbc-row-content .rbc-row .rbc-row-segment .rbc-event, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-time-view .rbc-row-content .rbc-row .rbc-row-segment .rbc-event {
+        background-color: #5583FF;
+        border-radius: 1px;
+        padding: 0; }
+        .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-row .rbc-row-content .rbc-row .rbc-row-segment .rbc-event .rbc-event-content, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-time-view .rbc-row-content .rbc-row .rbc-row-segment .rbc-event .rbc-event-content {
+          font-family: 'Roboto', sans-serif;
+          display: flex;
+          align-items: center;
+          text-align: left;
+          margin-left: 5px;
+          padding-left: 15px;
+          height: 45px;
+          background-color: #F5F7F9;
+          font-size: 14px;
+          color: #0D1935; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-row .rbc-row-content .rbc-row .rbc-date-cell, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-time-view .rbc-row-content .rbc-row .rbc-date-cell {
+        text-align: left;
+        margin-top: 25px; }
+        .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-row .rbc-row-content .rbc-row .rbc-date-cell a, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-time-view .rbc-row-content .rbc-row .rbc-date-cell a {
+          font-family: 'Roboto', sans-serif;
+          margin-left: 25px;
+          text-transform: uppercase;
+          font-size: 20px;
+          font-weight: 400;
+          color: #8391AF; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-header {
+        height: 75px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        color: #0D1935;
+        font-size: 20px;
+        font-weight: 400; }
+        .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-header a, .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-header span {
+          text-transform: uppercase;
+          margin-left: 25px; }
+      .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar .rbc-month-view .rbc-month-row {
+        display: flex;
+        display: flex;
+        position: relative;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex: 150px;
+        flex: 150px;
+        overflow: hidden;
+        height: 100%; }
+
+@media screen and (max-width: 1200px) {
+  #testModal {
+    left: 10%;
+    top: 10%; }
+  .home #mainContent .content .calendarComponents .bigCalendar {
+    overflow: scroll; }
+    .home #mainContent .content .calendarComponents .bigCalendar .rbc-calendar {
+      width: 1200px; } }
+
+/* statistics */
+.home #mainContent .content .statisticsComponents .active {
+  display: flex;
+  flex-direction: column;
+  margin: 50px; }
+  .home #mainContent .content .statisticsComponents .active .header {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .home #mainContent .content .statisticsComponents .active .header h3 {
+      color: #0D1935;
+      font-size: 36px; }
+    .home #mainContent .content .statisticsComponents .active .header .selectBlock {
+      display: flex; }
+      .home #mainContent .content .statisticsComponents .active .header .selectBlock div {
+        margin-left: 10px; }
+        .home #mainContent .content .statisticsComponents .active .header .selectBlock div span {
+          color: #8391AF;
+          font-size: 14px;
+          font-weight: 600;
+          position: absolute;
+          margin: 15px;
+          padding-left: 15px; }
+      .home #mainContent .content .statisticsComponents .active .header .selectBlock select {
+        padding: 15px 35px 15px 75px;
+        border: 1px solid #8391AF;
+        outline: 0;
+        border-radius: 25px 25px 25px 25px;
+        color: #0D1935;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .home #mainContent .content .statisticsComponents .active .header .selectBlock select:hover {
+        transition: 1s;
+        background-color: #FF3975; }
+      .home #mainContent .content .statisticsComponents .active .header .selectBlock select:focus > option:checked {
+        font-weight: 600;
+        background-color: #FF3975; }
+  .home #mainContent .content .statisticsComponents .active .result {
+    display: flex;
+    flex-direction: row;
+    padding: 0; }
+    .home #mainContent .content .statisticsComponents .active .result .resultBlock {
+      background-color: white;
+      border: 1px solid #D4D8E3;
+      padding: 0;
+      margin-right: 40px; }
+      .home #mainContent .content .statisticsComponents .active .result .resultBlock .sale, .home #mainContent .content .statisticsComponents .active .result .resultBlock .views {
+        color: #8391AF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .home #mainContent .content .statisticsComponents .active .result .resultBlock .sale .title, .home #mainContent .content .statisticsComponents .active .result .resultBlock .views .title {
+          font-size: 36px;
+          font-weight: 600;
+          margin: 0;
+          padding-left: 20%; }
+        .home #mainContent .content .statisticsComponents .active .result .resultBlock .sale p, .home #mainContent .content .statisticsComponents .active .result .resultBlock .views p {
+          font-size: 20px;
+          font-weight: 400;
+          padding-left: 20%; }
+      .home #mainContent .content .statisticsComponents .active .result .resultBlock .sale {
+        height: 50%;
+        border-bottom: solid 1px #D4D8E3; }
+      .home #mainContent .content .statisticsComponents .active .result .resultBlock .views {
+        height: 50%; }
+    .home #mainContent .content .statisticsComponents .active .result .activeChart {
+      background-color: white;
+      border: 1px solid #D4D8E3;
+      padding: 0; }
+
+.home #mainContent .content .statisticsComponents .totalSales {
+  margin: 50px;
+  background-color: white;
+  border: 1px solid #D4D8E3; }
+  .home #mainContent .content .statisticsComponents .totalSales .header {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .home #mainContent .content .statisticsComponents .totalSales .header h3 {
+      margin: 30px;
+      color: #8391AF;
+      font-size: 36px;
+      font-weight: 700; }
+    .home #mainContent .content .statisticsComponents .totalSales .header .buttonBlock {
+      margin: 30px; }
+  .home #mainContent .content .statisticsComponents .totalSales .items {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 60px; }
+    .home #mainContent .content .statisticsComponents .totalSales .items .item {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-1 div {
+        color: #5484FF; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-2 div {
+        color: #AA5FB9; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-3 div {
+        color: #F83C7B; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-1, .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-2, .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-1 div .ab .cir, .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-2 div .ab .cir, .home #mainContent .content .statisticsComponents .totalSales .items .item .demo-3 div .ab .cir {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 0; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item .resultBlock {
+        margin-left: 40px;
+        color: #8391AF; }
+        .home #mainContent .content .statisticsComponents .totalSales .items .item .resultBlock p {
+          margin: 0;
+          font-size: 36px;
+          font-weight: 700; }
+        .home #mainContent .content .statisticsComponents .totalSales .items .item .resultBlock span {
+          font-size: 20px;
+          font-weight: 400; }
+
+@media screen and (max-width: 1200px) {
+  .home #mainContent .content .statisticsComponents {
+    width: 100%; }
+    .home #mainContent .content .statisticsComponents .active .header {
+      height: 100%;
+      flex-wrap: wrap; }
+      .home #mainContent .content .statisticsComponents .active .header .selectBlock {
+        flex-wrap: wrap;
+        justify-content: center; }
+        .home #mainContent .content .statisticsComponents .active .header .selectBlock div {
+          margin: 20px 0; }
+    .home #mainContent .content .statisticsComponents .active .result {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0; }
+      .home #mainContent .content .statisticsComponents .active .result .resultBlock {
+        margin-right: 0;
+        margin-bottom: 40px; }
+    .home #mainContent .content .statisticsComponents .totalSales .items {
+      flex-wrap: wrap; }
+      .home #mainContent .content .statisticsComponents .totalSales .items .item {
+        flex-wrap: wrap;
+        margin: 20px 0; }
+        .home #mainContent .content .statisticsComponents .totalSales .items .item .resultBlock {
+          margin-left: 0; } }
+
+@media screen and (max-width: 870px) {
+  .home #mainContent .content .statisticsComponents .active .header {
+    justify-content: center;
+    align-items: center; }
+    .home #mainContent .content .statisticsComponents .active .header h3 {
+      text-align: center; }
+  .home #mainContent .content .statisticsComponents .totalSales .items {
+    flex-wrap: wrap; }
+    .home #mainContent .content .statisticsComponents .totalSales .items .item {
+      flex-direction: column; } }
+
+/* Users */
+.home #mainContent .content .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 45px 0; }
+  .home #mainContent .content .title h2 {
+    margin-left: 0; }
+  .home #mainContent .content .title .count {
+    color: #8391AF; }
+  .home #mainContent .content .title div span {
+    color: #8391AF;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    margin: 15px;
+    padding-left: 15px; }
+  .home #mainContent .content .title select {
+    padding: 15px 35px 15px 75px;
+    border: 1px solid #8391AF;
+    outline: 0;
+    border-radius: 25px 25px 25px 25px;
+    color: #0D1935;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .home #mainContent .content .title select:hover {
+    transition: 1s;
+    background-color: #FF3975; }
+  .home #mainContent .content .title select:focus > option:checked {
+    font-weight: 600;
+    background-color: #FF3975; }
+
+.home #mainContent .content .usersComponents {
+  margin: 0 40px; }
+  .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table {
+    border: none;
+    outline: none; }
+    .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-header table {
+      background-color: #F6F7FA; }
+      .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-header table thead tr th {
+        border: none;
+        outline: none;
+        color: #8391AF;
+        font-size: 20px;
+        font-weight: 400; }
+    .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body {
+      font-size: 20px;
+      font-weight: 600; }
+      .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr {
+        background-color: white; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock {
+          display: flex;
+          margin: 25px; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock .avatar {
+            height: 70px;
+            width: 70px;
+            background-color: rebeccapurple;
+            border-radius: 50%; }
+            .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock .avatar .online {
+              position: absolute;
+              margin-left: 55px;
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background-color: #00BF1B;
+              border: 3px solid white; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock .userBlockInfo {
+            display: flex;
+            flex-direction: column;
+            margin: 0 25px; }
+            .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock .userBlockInfo .name {
+              color: #0D1935; }
+            .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .userBlock .userBlockInfo .position {
+              color: #8391AF;
+              font-weight: 400; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .activityBlock {
+          display: flex;
+          margin: 45px 25px;
+          align-items: center;
+          color: #8391AF;
+          font-weight: 500; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .activityBlock span {
+            margin: 0 10px; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .online {
+          color: #00BF1B; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .phoneBlock, .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .mailBlock {
+          display: flex;
+          align-items: center;
+          margin: 45px 25px; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown {
+          height: 33px;
+          width: 7px;
+          background: url(../img/workflow/item-icon.fw.png) no-repeat center;
+          background-size: cover; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown i, .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown .text {
+            display: none; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown .menu {
+            flex-direction: column;
+            position: absolute;
+            left: -35px;
+            top: -15px; }
+            .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown .menu button {
+              color: #0D1935;
+              width: 70px;
+              height: 30px;
+              border: none;
+              outline: none;
+              margin: 2px; }
+          .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td .dropDown .visible {
+            display: flex;
+            flex-direction: column; }
+        .home #mainContent .content .usersComponents .table .react-bs-table-container .react-bs-table .react-bs-container-body table tbody tr td:last-child {
+          padding: 45px 0; }
+
+@media screen and (max-width: 1200px) {
+  .home #mainContent .content .title {
+    flex-direction: column; }
+  .home #mainContent .content .usersComponents .table {
+    width: 1200px;
+    overflow: scroll; } }
 
 /* sales */
 .sales, .report {
@@ -408,6 +928,7 @@ nav {
       transition: 1s;
       background-color: #FF3975; }
     .sales .header select:focus > option:checked, .report .header select:focus > option:checked {
+      appearance: none;
       font-weight: 600;
       background-color: #FF3975; }
 
@@ -452,6 +973,7 @@ nav {
       color: white; }
     .activity .items .item .description {
       margin: 17px 0;
+      margin-right: 10px;
       font-size: 14px; }
       .activity .items .item .description .activityData {
         font-size: 14px;
@@ -522,7 +1044,31 @@ nav {
         color: #F73B7B; }
     .tasks .items .item .itemControl {
       margin: 25px;
-      width: 10%; }
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .tasks .items .item .itemControl .dropDown {
+        height: 33px;
+        width: 7px;
+        background: url(../img/workflow/item-icon.fw.png) no-repeat center;
+        background-size: cover; }
+        .tasks .items .item .itemControl .dropDown i, .tasks .items .item .itemControl .dropDown .text {
+          display: none; }
+        .tasks .items .item .itemControl .dropDown .menu {
+          flex-direction: column;
+          position: absolute;
+          left: -35px; }
+          .tasks .items .item .itemControl .dropDown .menu button {
+            color: #0D1935;
+            width: 70px;
+            height: 30px;
+            border: none;
+            outline: none;
+            margin: 2px; }
+        .tasks .items .item .itemControl .dropDown .visible {
+          display: flex;
+          flex-direction: column; }
   .tasks .items .item:first-child {
     border-top: 1px solid #D4D8E3; }
   .tasks .items .item:last-child {

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Preloader from './Preloader';
 import TopMenu from './Menu/TopMenu';
 import SideMenu from './Menu/SideMenu';
+import Test from './Calendar/Test';
+import Basic from './Calendar/Basic';
+
 
 class Calendar extends Component {
 
@@ -14,11 +17,8 @@ class Calendar extends Component {
       <section id="mainContent">
         <TopMenu />
         <div className="content">
-          <div className="title">
-            <h2>User Name</h2>
-          </div>
-          <div className="workFlowComponents">
-            <p>CalendarComponents</p>
+          <div className="calendarComponents">
+          <Test /> 
           </div>        
         </div>
       </section>  

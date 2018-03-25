@@ -12,7 +12,8 @@
   justify-content: center; }
 
 .home {
-  display: flex; }
+  display: flex;
+  min-height: 100vh; }
   .home .title h2 {
     color: #0D1935;
     font-size: 48px; }
@@ -25,7 +26,9 @@
       flex-direction: column;
       background-color: #F6F7FA; }
       .home #mainContent .content .title {
-        margin: 45px; }
+        margin: 45px 0; }
+        .home #mainContent .content .title h2 {
+          margin-left: 50px; }
       .home #mainContent .content .homeComponents {
         display: flex;
         flex-direction: row;
@@ -52,6 +55,8 @@
 @media screen and (max-width: 1200px) {
   .home {
     flex-direction: column; }
+    .home #mainContent .content .title h2 {
+      margin: 0; }
     .home .sales, .home .report, .home .messages, .home .activity, .home .tasks {
       width: 100%;
       margin: 0;

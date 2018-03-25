@@ -24,6 +24,15 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                .login-error {
+                    color: red;
+                    font-weight: 600;
+                    padding: 10px 20px;
+                    background-color: #66001d;
+                    border: 1px solid red;
+                    text-transform: uppercase;
+
+                }
                 .input {
 
                     margin-top: 50px;
@@ -60,17 +69,17 @@
                 }
                 .error {
                     i {
-                        color: red;
+                        color: #66001d;
                     }
                     input {
                         border-bottom: 1px solid red;
                     }
       
                     input[type=text], input[type=password] {
-                        color: red;
+                        color: #66001d;
                     }
                     ::-webkit-input-placeholder {          
-                        color: red;
+                        color: #66001d;
                     }
                 }
                 button {
@@ -90,9 +99,21 @@
                         position: absolute;
                         margin-top: 6px;
                         right: 20px;
-                    }
+                    }        
                 }
+                .preloader {
+                    background: url(../img/login/loader.gif) no-repeat, #5583FF;
+                    color: #5583FF;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  }              
             }
         }
     }
+}
+@media screen and (max-width: 600px) {
+    button {
+        width: 300px;
+    }
+
 }

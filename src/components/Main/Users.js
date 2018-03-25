@@ -2,11 +2,33 @@ import React, { Component } from 'react';
 import Preloader from './Preloader';
 import TopMenu from './Menu/TopMenu';
 import SideMenu from './Menu/SideMenu';
+import Table from './Users/Table';
+import Select from './Users/Select';
 
 class Users extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      productsDataLength: [],
+      UserTableSendData: []
+    }
+  }
+  productsDataLength = (val) => {
+    this.setState({
+      productsDataLength: val
+    })
+  };
+  UserTableSendData = (val) => {
+    this.setState({
+      UserTableSendData: val
+    })
+  };
 
   render() {
     console.log("UsersComponents");
+    console.log(this.state.UserTableSendData.sort);
+    const UsersSelect = ["Sort Name","Sort Status"];
+    
     return (
       <div className="wrapper home">
       <Preloader />
@@ -14,11 +36,8 @@ class Users extends Component {
       <section id="mainContent">
         <TopMenu />
         <div className="content">
-          <div className="title">
-            <h2>User Name</h2>
-          </div>
-          <div className="workFlowComponents">
-            <p>UsersComponents</p>
+          <div className="usersComponents">
+            <Table data={this.state.UserTableSendData.sort} productsDataLength={this.productsDataLength}/>
           </div>        
         </div>
       </section>  

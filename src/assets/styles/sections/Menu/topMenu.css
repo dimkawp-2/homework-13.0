@@ -1,4 +1,9 @@
 /*topMenu*/
+.ui.active.modal {
+  height: 200px; }
+  .ui.active.modal .positive {
+    background-color: #5583FF; }
+
 #topMenu {
   width: 100%; }
   #topMenu .topMenuBlock {
@@ -50,6 +55,7 @@
           border: none;
           background-color: transparent; }
         #topMenu .topMenuBlock .userProfile .dropdownMenu .dropdownContent {
+          z-index: 99;
           position: absolute;
           display: flex;
           align-items: center;
@@ -67,12 +73,25 @@
             outline: none;
             border: none;
             background-color: transparent; }
+          #topMenu .topMenuBlock .userProfile .dropdownMenu .dropdownContent button:hover {
+            transition: 1s;
+            box-shadow: 1px 1px 30px 0px rgba(50, 50, 50, 0.75); }
     #topMenu .topMenuBlock .userProfile > * {
       margin: 35px 25px; }
 
 @media screen and (max-width: 1200px) {
+  #topMenu .topMenuBlock .navigation .sideMenu {
+    margin: 25px 0 25px 25px; }
+  #topMenu .topMenuBlock .navigation .search {
+    margin: 25px 0 25px 5px; }
+  #topMenu .topMenuBlock .navigation .dropdownMenu {
+    display: flex;
+    align-self: flex-end; }
   #topMenu .topMenuBlock .userProfile {
     width: 100%;
     justify-content: flex-end; }
+    #topMenu .topMenuBlock .userProfile .addProject {
+      width: 140px;
+      font-size: 12px; }
   #topMenu .topMenuBlock .userProfile > * {
     margin: 0 2%; } }
