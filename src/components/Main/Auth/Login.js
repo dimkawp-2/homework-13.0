@@ -26,7 +26,7 @@ class Login extends Component {
             name: this.login.value.trim(),
             password: this.password.value.trim()
         }
-        fetch('/api/users/authentication', {
+        fetch('https://api-fore-homework-13.herokuapp.com/api/users/authentication', {
             method: 'post',
             mode: 'cors',
             headers: {
@@ -61,7 +61,7 @@ class Login extends Component {
                 email: this.email.value.trim(),
                 password: this.regPassword.value.trim(),
             }
-            fetch('/api/users/create_user', {
+            fetch('https://api-fore-homework-13.herokuapp.com/api/users/create_user', {
                 method: 'post',
                 mode: 'cors',
                 headers: {
