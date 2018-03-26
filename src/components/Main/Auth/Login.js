@@ -20,13 +20,14 @@ class Login extends Component {
     }
 
     handleLogin = () => {
+        const apiUrl = "https://api-fore-homework-13.herokuapp.com"
         this.setState({disabled: !this.state.disabled});
         this.setState({preloader: !this.state.preloader});
         const data = {
             name: this.login.value.trim(),
             password: this.password.value.trim()
         }
-        fetch('https://api-fore-homework-13.herokuapp.com/api/users/authentication', {
+        fetch(apiUrl+'/api/users/authentication', {
             method: 'post',
             mode: 'cors',
             headers: {
@@ -61,7 +62,7 @@ class Login extends Component {
                 email: this.email.value.trim(),
                 password: this.regPassword.value.trim(),
             }
-            fetch('https://api-fore-homework-13.herokuapp.com/api/users/create_user', {
+            fetch(apiUrl+'/api/users/create_user', {
                 method: 'post',
                 mode: 'cors',
                 headers: {
