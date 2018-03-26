@@ -4,6 +4,8 @@ import Nav from '../Nav';
 import Preloader from '../Preloader';
 import Redirect from 'react-router/Redirect';
 
+const apiUrl = "https://api-fore-homework-13.herokuapp.com"
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,7 @@ class Login extends Component {
     }
 
     handleLogin = () => {
-        const apiUrl = "https://api-fore-homework-13.herokuapp.com"
+        
         this.setState({disabled: !this.state.disabled});
         this.setState({preloader: !this.state.preloader});
         const data = {
@@ -62,7 +64,7 @@ class Login extends Component {
                 email: this.email.value.trim(),
                 password: this.regPassword.value.trim(),
             }
-            fetch(apiUrl+'/api/users/create_user', {
+            fetch('/api/users/create_user', {
                 method: 'post',
                 mode: 'cors',
                 headers: {
