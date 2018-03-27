@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav';
 import Preloader from '../Preloader';
-import Redirect from 'react-router/Redirect';
 
 const apiUrl = "https://api-fore-homework-13.herokuapp.com"
 
@@ -22,7 +21,6 @@ class Login extends Component {
     }
 
     handleLogin = () => {
-        
         this.setState({disabled: !this.state.disabled});
         this.setState({preloader: !this.state.preloader});
         const data = {
@@ -64,7 +62,7 @@ class Login extends Component {
                 email: this.email.value.trim(),
                 password: this.regPassword.value.trim(),
             }
-            fetch('/api/users/create_user', {
+            fetch(apiUrl+'/api/users/create_user', {
                 method: 'post',
                 mode: 'cors',
                 headers: {
@@ -92,9 +90,7 @@ class Login extends Component {
             this.setState({disabled: this.state.disabled = false});
             this.setState({preloader: this.state.preloader = false});
             this.setState({errorValid: true});
-            
         }
-
     }
 
   render() {
