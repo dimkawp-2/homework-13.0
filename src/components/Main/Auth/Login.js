@@ -29,7 +29,7 @@ class Login extends Component {
             name: this.login.value.trim(),
             password: this.password.value.trim()
         }
-        fetch('http://localhost:3000/api/users/authentication', {
+        fetch(apiUrl+'/api/users/authentication', {
             method: 'post',
             mode: 'cors',
             headers: {
